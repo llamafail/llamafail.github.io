@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+ 
+	<html>
+		<head>
+			<link rel="stylesheet" href="style/style-2.css">
+			<meta charset="utf-8">
+			<title> Конный спорт </title>
+		</head>
+ 
+		<body>
+ 			<style>
+ 				body { background: url(img/фон.png);} 
+			</style>
+			<div id="square">
+				<div class="gradient-wrap">
+ 				<a id=b1 href="index.html">Просто кнопка</a>
+				<a id=b2 href="id.html">Авторизация</a>
+				<a id=b4 href="party.html">Добавление</a>
+ 				<a id=b5 href="cont.html">Вывод данных</a>
+				</div>
+			</div>
+
+			<div class="p">
+				<p>	ИЗМЕНЕНИЕ ЦВЕТА ДЛЯ textBox, numericUpDown, comboBox </p>
+				<p>	textBox1.BackColor = ColorTranslator.FromHtml("#14f35f");</p>
+				<p>	.</p>
+				<p>	.</p>
+				<p>	ИЗМЕНЕНИЕ ЦВЕТА ДЛЯ dataGridView</p>
+				<p>	dataGridView1.BackgroundColor = ColorTranslator.FromHtml("$23f534");</p>
+				<p>	.</p>
+				<p>	.</p>
+				<p>	ВЫВОД ДАННЫХ В USER CONTROL</p>
+				<p>	.</p>
+				<p>	private void Product_Load(object sender, EventArgs e)</p>
+				<p>	{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select();</p>
+				<p>	}</p>
+				<p>	.</p>
+				<p>	.</p>
+				<p>	private void select()</p>
+				<p>	{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string Sql = "server = 127.0.0.1; database = odeshda_dly_rychek; user = root; password = 0906009060; sslmode = none";</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlConnection Con = new MySqlConnection(Sql);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con.Open();
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlCommand Comm = new MySqlCommand($"SELECT `Наименование`, `тип_материала`.`название`, " +</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$"`Изображение`, `Цена`, `Количество на складе`, `Минимальное количество` " +</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$"FROM `материалы` JOIN `тип_материала` ON `тип_материала`.`id` = `материалы`.`Тип`", Con);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlDataReader Read = Comm.ExecuteReader();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (Read.Read())</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserCon user = new UserCon();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.label1.Text = Read[1] + " " + Read[0];</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.label3.Text = "Количество на складе:  " + Read[4];</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.label4.Text = "Минимальное количество:  " + Read[5];</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (Read[2] != "")</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.pictureBox1.Image = Image.FromFile(Directory.GetCurrentDirectory() + Read[2]);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flowLayoutPanel1.Controls.Add(user);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con.Close();</p>
+				<p>	}</p>
+				<p>	.</p>
+				<p>	.</p>
+				<p>	.</p>
+				<p>	private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)</p>
+				<p>	{ </p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Ad = new Add();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ad.ShowDialog();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Show();</p>
+				<p>	}</p>
+				<p>	.</p>
+				<p>	.</p>
+				<p>	ВЫВОД ДАННЫХ В dataGridView</p>
+				<p>	.</p>
+				<p>	private void Product_Load(object sender, EventArgs e)</p>
+				<p>	{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select();</p>
+				<p>	}</p>
+				<p>	.</p>
+				<p>	.</p>
+				<p>	private void select()</p>
+				<p>	{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string Sql = "server = 127.0.0.1; database = biblioteka; user = root; password = 0906009060; sslmode = none";</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlConnection Conn = new MySqlConnection(Sql);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlCommand selectdata = new MySqlCommand($"SELECT `Наименование`, `тип_материала`.`название`, " +</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$"`Изображение`, `Цена`, `Количество на складе`, `Минимальное количество` " +</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$"FROM `материалы` JOIN `тип_материала` ON `тип_материала`.`id` = `материалы`.`Тип`", Con);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlDataAdapter Adapter = new MySqlDataAdapter();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataTable Table = new DataTable();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adapter.SelectCommand = selectdata;</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adapter.Fill(Table);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataGridView1.DataSource = Table;</p>
+				<p>	{</p>
+				
+			</div>
+		</body>
+ 
+	</html>

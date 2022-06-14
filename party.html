@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+ 
+	<html>
+		<head>
+			<link rel="stylesheet" href="style/style-2.css">
+			<meta charset="utf-8">
+			<title> Конный спорт </title>
+		</head>
+ 
+		<body>
+ 			<style>
+ 				body { background: url(img/фон.png);} 
+			</style>
+			<div id="square">
+				<div class="gradient-wrap">
+ 				<a id=b1 href="index.html">Просто кнопка</a>
+				<a id=b2 href="id.html">Авторизация</a>
+				<a id=b4 href="party.html">Добавление</a>
+ 				<a id=b5 href="cont.html">Вывод данных</a>
+				</div>
+			</div>
+
+			<div class="p">
+				<p >private void Add_Load(object sender, EventArgs e)</p>
+				<p>{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string Sql = "server = 127.0.0.1; database = biblioteka; user = root; password = 0906009060; sslmode = none";</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlConnection Conn = new MySqlConnection(Sql);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlCommand Type = new MySqlCommand($"select * from тип_материала",Conn);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlDataAdapter Adapter = new MySqlDataAdapter();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataTable Table = new DataTable();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adapter.SelectCommand = Type;</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adapter.Fill(Table);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox1.DataSource = Table;</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox1.DisplayMember = "Название";</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox1.ValueMember = "id";</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox1.SelectedIndex = 0;</p>
+				<p>	{</p>
+				<p>	.</p>
+				<p>	 .</p>
+				<p>	 .</p>
+				<p>	 .</p>
+				<p>	private void button1_Click(object sender, EventArgs e)</p>
+				<p>	{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string Sql = "server = 127.0.0.1; database = odeshda_dly_rychek; user = root; password = 0906009060; sslmode = none";</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlConnection Con = new MySqlConnection(Sql);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con.Open();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (textBox1.Text != "" && textBox2.Text != "" && numericUpDown1.Value != 0 && numericUpDown2.Value != 0 && numericUpDown3.Value != 0 && numericUpDown4.Value != 0)</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySqlCommand insert = new MySqlCommand($"INSERT INTO `материалы` " +</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$"(`Наименование`,`Тип`,`Цена`,`Количество на складе`,`Минимальное количество`,`Количество в упаковке`,`Единица измерения`,`Изображение`) " +</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$"VALUES ('{textBox1.Text}','{comboBox1.SelectedValue}','{numericUpDown1.Value}'," +</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$"'{numericUpDown2.Value}','{numericUpDown3.Value}','{numericUpDown4.Value}','{textBox1.Text}','');", Con);</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;insert.ExecuteNonQuery();</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MessageBox.Show("Успешно добавлено!");</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+				<p>	.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con.Close();</p>
+				<p>}</p>
+				
+			</div>
+		</body>
+ 
+	</html>
